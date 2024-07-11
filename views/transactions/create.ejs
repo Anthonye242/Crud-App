@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Create New Transaction</title>
+</head>
+<body>
+  <%- include('../partials/nav.ejs') %>
+  <h1>Create New Transaction</h1>
+  <form action="/transactions" method="POST">
+    <input type="text" name="description" placeholder="Description" required>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <input type="date" name="date" required>
+    <button type="submit">Create Transaction</button>
+  </form>
+</body>
+</html>

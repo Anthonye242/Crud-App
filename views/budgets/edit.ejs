@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Edit Budget</title>
+</head>
+<body>
+  <% include('../partials/nav.ejs') %>
+  <h1>Edit Budget</h1>
+  <form action="/budgets/<%= budget._id %>?_method=PUT" method="POST">
+    <input type="text" name="title" value="<%= budget.title %>" required>
+    <input type="number" name="amount" value="<%= budget.amount %>" required>
+    <button type="submit">Update Budget</button>
+  </form>
+</body>
+</html>

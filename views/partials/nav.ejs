@@ -1,0 +1,14 @@
+<nav>
+    <a href="/">Home</a>
+    <% if (user) { %>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/transactions">Transactions</a>
+      <a href="/budget">Budget Goals</a>
+      <a href="/reports">Expense Reports</a>
+      <a href="/auth/sign-out">Sign Out</a>
+    <% } else { %>
+      <a href="/auth/sign-in">Sign In</a>
+      <a href="/auth/sign-up">Sign Up</a>
+    <% } %>
+  </nav>
+  

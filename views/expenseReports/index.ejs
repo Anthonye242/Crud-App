@@ -1,0 +1,24 @@
+<!-- views/expenseReports/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Reports</title>
+</head>
+<body>
+  <% include partials/nav %>
+  <h1>Expense Reports</h1>
+  <ul>
+    <% expenseReports.forEach(expenseReport => { %>
+      <li><%= expenseReport.title %> - <%= expenseReport.startDate %> to <%= expenseReport.endDate %>
+        <a href="/expense-reports/<%= expenseReport._id %>/edit">Edit</a>
+        <form action="/expense-reports/<%= expenseReport._id %>?_method=DELETE" method="POST" style="display: inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/expense-reports/new">New Expense Report</a>
+</body>
+</html>
