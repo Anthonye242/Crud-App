@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Create New Budget</title>
+  <title>Create Budget - Personal Finance Tracker</title>
 </head>
 <body>
-  <% include('../partials/nav.ejs') %>
+  <%- include('../partials/nav') %>
+  
   <h1>Create New Budget</h1>
+
   <form action="/budgets" method="POST">
-    <input type="text" name="title" placeholder="Budget Title" required>
-    <input type="number" name="amount" placeholder="Amount" required>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" step="0.01" required>
+
     <button type="submit">Create Budget</button>
   </form>
 </body>

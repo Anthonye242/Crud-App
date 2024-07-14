@@ -7,12 +7,15 @@
   <title>Personal Finance Tracker</title>
 </head>
 <body>
-  <%- include('partials/nav.ejs') %>
+  <%- include('partials/nav') %>
+  
   <h1>Welcome to Personal Finance Tracker</h1>
+  
   <% if (user) { %>
     <p>Welcome, <%= user.username %>!</p>
     <a href="/budgets">Manage Budgets</a>
     <a href="/transactions">Manage Transactions</a>
+    <a href="/expense-reports">Manage Expense Reports</a>
     <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>
     <a href="/auth/sign-in">Sign In</a>

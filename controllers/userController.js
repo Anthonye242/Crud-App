@@ -3,7 +3,6 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
-// Sign-up routes
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up');
 });
@@ -26,7 +25,6 @@ router.post('/sign-up', async (req, res) => {
   }
 });
 
-// Sign-in routes
 router.get('/sign-in', (req, res) => {
   res.render('auth/sign-in');
 });
@@ -41,13 +39,12 @@ router.post('/sign-in', async (req, res) => {
     }
 
     req.session.user = { id: user._id, username: user.username };
-    res.redirect('/');
+    res.redirect('/dashboard');
   } catch (error) {
     res.status(400).send(error.message);
   }
 });
 
-// Sign-out route
 router.get('/sign-out', (req, res) => {
   req.session.destroy();
   res.redirect('/');

@@ -1,9 +1,7 @@
-// controllers/expenseReportController.js
 const express = require('express');
 const router = express.Router();
 const ExpenseReport = require('../models/ExpenseReport');
 
-// GET all expense reports
 router.get('/', async (req, res) => {
   try {
     const expenseReports = await ExpenseReport.find({ user: req.session.user.id });
@@ -13,12 +11,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET new expense report form
 router.get('/new', (req, res) => {
   res.render('expenseReports/create');
 });
 
-// POST new expense report
 router.post('/', async (req, res) => {
   try {
     const { title, startDate, endDate } = req.body;
@@ -35,7 +31,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET edit expense report form
 router.get('/:id/edit', async (req, res) => {
   try {
     const expenseReport = await ExpenseReport.findOne({ _id: req.params.id, user: req.session.user.id });
@@ -48,7 +43,6 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-// PUT update expense report
 router.put('/:id', async (req, res) => {
   try {
     const { title, startDate, endDate } = req.body;
@@ -66,7 +60,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE expense report
 router.delete('/:id', async (req, res) => {
   try {
     const expenseReport = await ExpenseReport.findOneAndDelete({ _id: req.params.id, user: req.session.user.id });

@@ -13,6 +13,7 @@ const authController = require('./controllers/userController.js');
 const budgetsController = require('./controllers/budgetController.js');
 const transactionsController = require('./controllers/transactionController.js');
 const expenseReportsController = require('./controllers/expenseReportController.js');
+const dashboardController = require('./controllers/dashboardController.js');
 
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
@@ -46,6 +47,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authController);
 app.use(isSignedIn);
+app.use('/dashboard', dashboardController);
 app.use('/budgets', budgetsController);
 app.use('/transactions', transactionsController);
 app.use('/expense-reports', expenseReportsController);

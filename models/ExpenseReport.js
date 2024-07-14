@@ -21,6 +21,4 @@ const expenseReportSchema = new mongoose.Schema({
   }
 });
 
-const ExpenseReport = mongoose.model('ExpenseReport', expenseReportSchema);
-
-module.exports = ExpenseReport;
+module.exports = mongoose.model('ExpenseReport', expenseReportSchema);

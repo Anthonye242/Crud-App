@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Dashboard - Personal Finance Tracker</title>
+</head>
+<body>
+  <%- include('partials/nav') %>
+  
+  <h1>Dashboard</h1>
+
+  <h2>Recent Budgets</h2>
+  <ul>
+    <% budgets.forEach(budget => { %>
+      <li><%= budget.title %> - $<%= budget.amount %></li>
+    <% }) %>
+  </ul>
+  <a href="/budgets">View All Budgets</a>
+
+  <h2>Recent Transactions</h2>
+  <ul>
+    <% transactions.forEach(transaction => { %>
+      <li><%= transaction.description %> - $<%= transaction.amount %> (<%= transaction.date.toDateString() %>)</li>
+    <% }) %>
+  </ul>
+  <a href="/transactions">View All Transactions</a>
+
+  <h2>Recent Expense Reports</h2>
+  <ul>
+    <% expenseReports.forEach(report => { %>
+      <li><%= report.title %> (<%= report.startDate.toDateString() %> - <%= report.endDate.toDateString() %>)</li>
+    <% }) %>
+  </ul>
+  <a href="/expense-reports">View All Expense Reports</a>
+</body>
+</html>

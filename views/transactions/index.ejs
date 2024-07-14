@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Transactions</title>
+  <title>Transactions - Personal Finance Tracker</title>
 </head>
 <body>
-  <%- include('../partials/nav.ejs') %>
+  <%- include('../partials/nav') %>
+  
   <h1>Transactions</h1>
+
   <a href="/transactions/new">Create New Transaction</a>
+
   <ul>
     <% transactions.forEach(transaction => { %>
       <li>
-        <%= transaction.description %> - $<%= transaction.amount %> - <%= transaction.date.toDateString() %>
+        <%= transaction.description %> - $<%= transaction.amount %> (<%= transaction.date.toDateString() %>)
         <a href="/transactions/<%= transaction._id %>/edit">Edit</a>
-        <form action="/transactions/<%= transaction._id %>?_method=DELETE" method="POST" style="display: inline;">
+        <form action="/transactions/<%= transaction._id %>?_method=DELETE" method="POST" style="display:inline;">
           <button type="submit">Delete</button>
         </form>
       </li>

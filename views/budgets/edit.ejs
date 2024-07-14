@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Edit Budget</title>
+  <title>Edit Budget - Personal Finance Tracker</title>
 </head>
 <body>
-  <% include('../partials/nav.ejs') %>
+  <%- include('../partials/nav') %>
+  
   <h1>Edit Budget</h1>
+
   <form action="/budgets/<%= budget._id %>?_method=PUT" method="POST">
-    <input type="text" name="title" value="<%= budget.title %>" required>
-    <input type="number" name="amount" value="<%= budget.amount %>" required>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="<%= budget.title %>" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" step="0.01" value="<%= budget.amount %>" required>
+
     <button type="submit">Update Budget</button>
   </form>
 </body>

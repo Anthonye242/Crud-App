@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Budget = require('../models/Budget');
 
-// Index - List all budgets
 router.get('/', async (req, res) => {
   try {
     const budgets = await Budget.find({ user: req.session.user.id });
@@ -12,16 +11,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// New - Show form to create a new budget
 router.get('/new', (req, res) => {
   res.render('budgets/create');
 });
 
-// Create - Handle form submission to create a new budget
 router.post('/', async (req, res) => {
   try {
-    const { category, limit } = req.body;
-    const budget = new Budget({ category, limit, user: req.session.user.id });
+    const { title, amount } = req.body;
+    const budget = new Budget({ title, amount, user: req.session.user.id });
     await budget.save();
     res.redirect('/budgets');
   } catch (error) {
@@ -29,7 +26,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Edit - Show form to edit a budget
 router.get('/:id/edit', async (req, res) => {
   try {
     const budget = await Budget.findOne({ _id: req.params.id, user: req.session.user.id });
@@ -42,7 +38,6 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-// Update - Handle form submission to update a budget
 router.put('/:id', async (req, res) => {
   try {
     const budget = await Budget.findOneAndUpdate(
@@ -59,7 +54,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete - Handle deletion of a budget
 router.delete('/:id', async (req, res) => {
   try {
     const budget = await Budget.findOneAndDelete({ _id: req.params.id, user: req.session.user.id });

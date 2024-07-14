@@ -4,15 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Edit Transaction</title>
+  <title>Edit Transaction - Personal Finance Tracker</title>
 </head>
 <body>
-  <%- include('../partials/nav.ejs') %>
+  <%- include('../partials/nav') %>
+  
   <h1>Edit Transaction</h1>
+
   <form action="/transactions/<%= transaction._id %>?_method=PUT" method="POST">
-    <input type="text" name="description" value="<%= transaction.description %>" required>
-    <input type="number" name="amount" value="<%= transaction.amount %>" required>
-    <input type="date" name="date" value="<%= transaction.date.toISOString().split('T')[0] %>" required>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" value="<%= transaction.description %>" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" step="0.01" value="<%= transaction.amount %>" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="<%= transaction.date.toISOString().split('T')[0] %>" required>
+
     <button type="submit">Update Transaction</button>
   </form>
 </body>
