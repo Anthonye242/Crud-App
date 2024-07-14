@@ -1,179 +1,194 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables for colors and spacing */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #34495e;
-    --accent-color: #3498db;
-    --text-color: #333333;
-    --background-color: #ecf0f1;
-    --input-background: #ffffff;
-    --input-border: #bdc3c7;
-    --button-hover: #2980b9;
-    --delete-color: #e74c3c;
-    --delete-hover: #c0392b;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: var(--primary-color);
-    padding: 10px 0;
-  }
-  
+  --primary-color: #2c3e50;       /* Dark blue */
+  --secondary-color: #34495e;     /* Dark gray blue */
+  --accent-color: #3498db;        /* Blue */
+  --text-color: #333333;          /* Dark gray */
+  --background-color: #ecf0f1;    /* Light gray */
+  --input-background: #ffffff;    /* White */
+  --input-border: #bdc3c7;        /* Light gray border */
+  --button-hover: #2980b9;        /* Darker blue hover */
+  --delete-color: #e74c3c;        /* Red */
+  --delete-hover: #c0392b;        /* Darker red hover */
+}
+
+/* Body and general layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 0;
+}
+
+header h1 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Navigation */
+nav {
+  background-color: var(--primary-color);
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* Forms */
+form {
+  background-color: var(--input-background);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] {
+  width: calc(100% - 20px); /* Adjust for padding */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--input-border);
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+form button[type="submit"] {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--button-hover);
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: var(--input-background);
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Links and buttons */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--button-hover);
+}
+
+a.button,
+button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+a.button:hover,
+button:hover {
+  background-color: var(--button-hover);
+}
+
+button.delete {
+  background-color: var(--delete-color);
+}
+
+button.delete:hover {
+  background-color: var(--delete-hover);
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  nav ul li {
-    margin: 0 10px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: var(--accent-color);
-  }
-  
-  /* Form Styles */
-  form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--input-border);
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  button[type="submit"] {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: var(--button-hover);
-  }
-  
-  /* List Styles */
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    background-color: white;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 3px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
   }
-  
-  /* Button and Link Styles */
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+
+  nav ul li {
+    margin: 5px 0;
   }
-  
-  a:hover {
-    color: var(--button-hover);
+
+  .container {
+    padding: 10px;
   }
-  
-  a.button,
-  button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 3px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+
+  form {
+    padding: 15px;
   }
-  
-  a.button:hover,
-  button:hover {
-    background-color: var(--button-hover);
-  }
-  
-  button.delete {
-    background-color: var(--delete-color);
-  }
-  
-  button.delete:hover {
-    background-color: var(--delete-hover);
-  }
-  
-  /* Footer Styles */
-  footer {
-    background-color: var(--secondary-color);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    nav ul li {
-      margin: 5px 0;
-    }
-  
-    .container {
-      padding: 10px;
-    }
-  
-    form {
-      padding: 15px;
-    }
-  }
+}

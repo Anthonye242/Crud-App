@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -12,7 +11,7 @@ dotenv.config();
 const authController = require('./controllers/userController.js');
 const budgetsController = require('./controllers/budgetController.js');
 const transactionsController = require('./controllers/transactionController.js');
-const expenseReportsController = require('./controllers/expenseReportController.js');
+const expenseReportController = require('./controllers/expenseReportController.js');
 const dashboardController = require('./controllers/dashboardController.js');
 
 const isSignedIn = require('./middleware/is-signed-in.js');
@@ -50,7 +49,7 @@ app.use(isSignedIn);
 app.use('/dashboard', dashboardController);
 app.use('/budgets', budgetsController);
 app.use('/transactions', transactionsController);
-app.use('/expense-reports', expenseReportsController);
+app.use('/expenseReports', expenseReportController); 
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

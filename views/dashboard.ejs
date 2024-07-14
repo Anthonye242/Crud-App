@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Dashboard - Personal Finance Tracker</title>
 </head>
 <body>
@@ -30,9 +30,9 @@
   <h2>Recent Expense Reports</h2>
   <ul>
     <% expenseReports.forEach(report => { %>
-      <li><%= report.title %> (<%= report.startDate.toDateString() %> - <%= report.endDate.toDateString() %>)</li>
+      <li><%= report.title %> (<%= report.startDate.toDateString() %>)</li>
     <% }) %>
   </ul>
-  <a href="/expense-reports">View All Expense Reports</a>
+  <a href="/expenseReports">View All Expense Reports</a>
 </body>
 </html>

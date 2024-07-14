@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Expense Reports - Personal Finance Tracker</title>
 </head>
 <body>
@@ -11,18 +11,21 @@
   
   <h1>Expense Reports</h1>
 
-  <a href="/expense-reports/new">Create New Expense Report</a>
+  <% if (reports.length > 0) { %>
+    <ul>
+      <% reports.forEach(report => { %>
+        <li>
+          <a href="/expenseReports/<%= report._id %>"><%= report.title %></a>
+          <form action="/expenseReports/<%= report._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No expense reports found.</p>
+  <% } %>
 
-  <ul>
-    <% expenseReports.forEach(report => { %>
-      <li>
-        <%= report.title %> (<%= report.startDate.toDateString() %> - <%= report.endDate.toDateString() %>)
-        <a href="/expense-reports/<%= report._id %>/edit">Edit</a>
-        <form action="/expense-reports/<%= report._id %>?_method=DELETE" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    <% }) %>
-  </ul>
+  <a href="/expenseReports/new">Create New Expense Report</a>
 </body>
 </html>

@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const budgets = await Budget.find({ user: req.session.user.id });
     res.render('budgets/index', { budgets });
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: 'BUDGETS_FETCH_ERROR', message: error.message });
   }
 });
 
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
     await budget.save();
     res.redirect('/budgets');
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json({ error: 'BUDGET_CREATION_ERROR', message: error.message });
   }
 });
 
@@ -30,11 +30,11 @@ router.get('/:id/edit', async (req, res) => {
   try {
     const budget = await Budget.findOne({ _id: req.params.id, user: req.session.user.id });
     if (!budget) {
-      return res.status(404).send('Budget not found');
+      return res.status(404).json({ error: 'BUDGET_NOT_FOUND', message: 'Budget not found' });
     }
     res.render('budgets/edit', { budget });
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: 'BUDGET_FETCH_ERROR', message: error.message });
   }
 });
 
@@ -46,11 +46,11 @@ router.put('/:id', async (req, res) => {
       { new: true, runValidators: true }
     );
     if (!budget) {
-      return res.status(404).send('Budget not found');
+      return res.status(404).json({ error: 'BUDGET_NOT_FOUND', message: 'Budget not found' });
     }
     res.redirect('/budgets');
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json({ error: 'BUDGET_UPDATE_ERROR', message: error.message });
   }
 });
 
@@ -58,11 +58,11 @@ router.delete('/:id', async (req, res) => {
   try {
     const budget = await Budget.findOneAndDelete({ _id: req.params.id, user: req.session.user.id });
     if (!budget) {
-      return res.status(404).send('Budget not found');
+      return res.status(404).json({ error: 'BUDGET_NOT_FOUND', message: 'Budget not found' });
     }
     res.redirect('/budgets');
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: 'BUDGET_DELETE_ERROR', message: error.message });
   }
 });
 

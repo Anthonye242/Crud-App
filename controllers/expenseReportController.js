@@ -5,9 +5,9 @@ const ExpenseReport = require('../models/ExpenseReport');
 router.get('/', async (req, res) => {
   try {
     const expenseReports = await ExpenseReport.find({ user: req.session.user.id });
-    res.render('expenseReports/index', { expenseReports });
+    res.render('expenseReports/index', { reports: expenseReports });
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: 'EXPENSE_REPORTS_FETCH_ERROR', message: error.message });
   }
 });
 
@@ -17,58 +17,53 @@ router.get('/new', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { title, startDate, endDate } = req.body;
-    const expenseReport = new ExpenseReport({
-      title,
-      startDate,
-      endDate,
-      user: req.session.user.id
-    });
-    await expenseReport.save();
-    res.redirect('/expense-reports');
+    const { title, startDate } = req.body; // Remove endDate from here
+    const report = new ExpenseReport({ title, startDate, user: req.session.user.id }); // Remove endDate from here
+    await report.save();
+    res.redirect('/expenseReports');
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json({ error: 'EXPENSE_REPORT_CREATION_ERROR', message: error.message });
   }
 });
 
 router.get('/:id/edit', async (req, res) => {
   try {
-    const expenseReport = await ExpenseReport.findOne({ _id: req.params.id, user: req.session.user.id });
-    if (!expenseReport) {
-      return res.status(404).send('Expense Report not found');
+    const report = await ExpenseReport.findOne({ _id: req.params.id, user: req.session.user.id });
+    if (!report) {
+      return res.status(404).json({ error: 'EXPENSE_REPORT_NOT_FOUND', message: 'Report not found' });
     }
-    res.render('expenseReports/edit', { expenseReport });
+    res.render('expenseReports/edit', { report });
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: 'EXPENSE_REPORT_FETCH_ERROR', message: error.message });
   }
 });
 
 router.put('/:id', async (req, res) => {
   try {
-    const { title, startDate, endDate } = req.body;
-    const expenseReport = await ExpenseReport.findOneAndUpdate(
+    const { title, startDate } = req.body; // Remove endDate from here
+    const report = await ExpenseReport.findOneAndUpdate(
       { _id: req.params.id, user: req.session.user.id },
-      { title, startDate, endDate },
+      { title, startDate }, // Remove endDate from here
       { new: true, runValidators: true }
     );
-    if (!expenseReport) {
-      return res.status(404).send('Expense Report not found');
+    if (!report) {
+      return res.status(404).json({ error: 'EXPENSE_REPORT_NOT_FOUND', message: 'Report not found' });
     }
-    res.redirect('/expense-reports');
+    res.redirect('/expenseReports');
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json({ error: 'EXPENSE_REPORT_UPDATE_ERROR', message: error.message });
   }
 });
 
 router.delete('/:id', async (req, res) => {
   try {
-    const expenseReport = await ExpenseReport.findOneAndDelete({ _id: req.params.id, user: req.session.user.id });
-    if (!expenseReport) {
-      return res.status(404).send('Expense Report not found');
+    const report = await ExpenseReport.findOneAndDelete({ _id: req.params.id, user: req.session.user.id });
+    if (!report) {
+      return res.status(404).json({ error: 'EXPENSE_REPORT_NOT_FOUND', message: 'Report not found' });
     }
-    res.redirect('/expense-reports');
+    res.redirect('/expenseReports');
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: 'EXPENSE_REPORT_DELETE_ERROR', message: error.message });
   }
 });
 
