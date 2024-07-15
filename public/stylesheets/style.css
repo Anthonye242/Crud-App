@@ -1,0 +1,178 @@
+/* General styles for the entire page */
+body {
+  font-family: Arial, sans-serif; /* Set the font for the entire document */
+  background-color: #0d6d5e; /* Light gray background */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+/* Navigation bar styles */
+nav {
+  background-color: #333; /* Dark navy background */
+  color: white; /* White text color */
+  padding: 10px; /* Padding inside the navigation bar */
+  text-align: center; /* Center-align text */
+}
+
+/* Navigation links */
+nav a {
+  color: white; /* White text color */
+  margin: 0 15px; /* Margin around each link */
+  text-decoration: none; /* Remove underline */
+  font-size: 18px; /* Font size */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Containers for content */
+.container { 
+  max-width: 600px; /* Maximum width */
+  margin: 200px auto 50px; /* Center horizontally with margin top and bottom */
+  padding: 20px; /* Padding inside containers */
+  background: white; /* White background */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Box shadow for a subtle lift effect */
+  border-radius: 8px; /* Rounded corners */
+  position: relative; /* Ensure relative positioning for absolute children */
+   
+}
+
+.dashboard-container {
+  max-width: 600px; /* Maximum width */
+  margin: 100px auto 50px; /* Center horizontally with margin top and bottom */
+  padding: 20px; /* Padding inside containers */
+  background: white; /* White background */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Box shadow for a subtle lift effect */
+  border-radius: 8px; /* Rounded corners */
+  position: relative; /* Ensure relative positioning for absolute children */
+   
+}
+.budget-container {
+  max-width: 600px; /* Maximum width */
+  margin: 100px auto 50px; /* Center horizontally with margin top and bottom */
+  padding: 20px; /* Padding inside containers */
+  background: white; /* White background */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Box shadow for a subtle lift effect */
+  border-radius: 8px; /* Rounded corners */
+  position: relative; /* Ensure relative positioning for absolute children */
+   
+}
+
+/* Heading styles */
+h1 {
+  font-size: 24px; /* Larger font size */
+  margin-bottom: 20px; /* Margin bottom */
+  color: #333; /* Dark gray text color */
+}
+
+/* Form styles */
+form {
+  display: flex; /* Display forms in a column layout */
+  flex-direction: column; /* Stack form elements vertically */
+}
+
+/* Label styles for form inputs */
+form label {
+  margin-bottom: 5px; /* Margin below labels */
+  color: #555; /* Dark gray label text */
+}
+
+/* Input field styles */
+form input {
+  padding: 10px; /* Padding inside inputs */
+  margin-bottom: 15px; /* Margin bottom */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+}
+
+/* Button styles */
+form button, .button {
+  padding: 10px 20px; /* Padding inside buttons */
+  background-color: #ec780b; /* Orange button background */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  border: 1px solid black; /* Black border around buttons */
+}
+
+/* Hover effect for buttons */
+form button:hover, .button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Additional button style for links */
+a.button {
+  text-align: center; /* Center-align text */
+  display: inline-block; /* Display as inline block */
+  text-decoration: none; /* Remove underline */
+}
+
+/* List styles */
+ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+
+/* List item styles */
+ul li {
+  background: #f1f1f1; /* Light gray list item background */
+  padding: 10px; /* Padding inside list items */
+  margin-bottom: 5px; /* Margin bottom */
+  border-radius: 4px; /* Rounded corners */
+  display: flex; /* Display list items in a row layout */
+  justify-content: space-between; /* Space evenly between elements */
+  align-items: center; /* Align items vertically */
+}
+
+/* Link styles inside list items */
+ul li a {
+  margin-right: 10px; /* Margin right */
+  color: #007bff; /* Blue link color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect for links inside list items */
+ul li a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Form inside list items */
+ul li form {
+  display: inline; /* Display form elements inline */
+}
+
+/* Styles for middle content and buttons */
+.middle-content, .bottom-buttons {
+  text-align: center; /* Center-align text */
+}
+
+/* Styles for top links */
+.top-links {
+  display: flex; /* Display top links in a row layout */
+  justify-content: space-between; /* Space evenly between elements */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Margin for top links */
+.top-links a {
+  margin: 5px; /* Margin around top links */
+}
+
+/* Styling for the welcome image */
+.welcome-image {
+  position: absolute; /* Position absolute to place outside the container */
+  top: -160px; /* Adjust top position as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for center alignment */
+  border-radius: 50%; /* Rounded shape */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add shadow for effect */
+  z-index: 1; /* Ensure image appears above other content */
+  width: 150px; /* Adjust width of the image */
+  height: 150px; /* Adjust height of the image */
+}

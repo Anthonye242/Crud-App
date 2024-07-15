@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Transactions - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/nav') %>
-  
-  <h1>Transactions</h1>
 
-  <a href="/transactions/new">Create New Transaction</a>
+  <div class="container">
+    <h1>Transactions</h1>
 
-  <ul>
-    <% transactions.forEach(transaction => { %>
-      <li>
-        <%= transaction.description %> - $<%= transaction.amount %> (<%= transaction.date.toDateString() %>)
-        <a href="/transactions/<%= transaction._id %>/edit">Edit</a>
-        <form action="/transactions/<%= transaction._id %>?_method=DELETE" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    <% }) %>
-  </ul>
+    <a href="/transactions/new" class="button">Create New Transaction</a>
+
+    <ul>
+      <% transactions.forEach(transaction => { %>
+        <li>
+          <%= transaction.description %> - $<%= transaction.amount %> (<%= transaction.date.toDateString() %>)
+          <a href="/transactions/<%= transaction._id %>/edit" class="button">Edit</a>
+          <form action="/transactions/<%= transaction._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit" class="button">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
 </body>
 </html>

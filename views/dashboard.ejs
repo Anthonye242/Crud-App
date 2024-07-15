@@ -3,36 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Dashboard - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('partials/nav') %>
-  
-  <h1>Dashboard</h1>
 
-  <h2>Recent Budgets</h2>
-  <ul>
-    <% budgets.forEach(budget => { %>
-      <li><%= budget.title %> - $<%= budget.amount %></li>
-    <% }) %>
-  </ul>
-  <a href="/budgets">View All Budgets</a>
+  <div class="dashboard-container">
+    <h1>Dashboard</h1>
 
-  <h2>Recent Transactions</h2>
-  <ul>
-    <% transactions.forEach(transaction => { %>
-      <li><%= transaction.description %> - $<%= transaction.amount %> (<%= transaction.date.toDateString() %>)</li>
-    <% }) %>
-  </ul>
-  <a href="/transactions">View All Transactions</a>
+    <div class="dashboard-section">
+      <h2>Recent Budgets</h2>
+      <ul>
+        <% budgets.forEach(budget => { %>
+          <li><%= budget.title %> - $<%= budget.amount %></li>
+        <% }) %>
+      </ul>
+      <a href="/budgets" class="button">View All Budgets</a>
+    </div>
 
-  <h2>Recent Expense Reports</h2>
-  <ul>
-    <% expenseReports.forEach(report => { %>
-      <li><%= report.title %> (<%= report.startDate.toDateString() %>)</li>
-    <% }) %>
-  </ul>
-  <a href="/expenseReports">View All Expense Reports</a>
+    <div class="dashboard-section">
+      <h2>Recent Transactions</h2>
+      <ul>
+        <% transactions.forEach(transaction => { %>
+          <li><%= transaction.description %> - $<%= transaction.amount %> (<%= transaction.date.toDateString() %>)</li>
+        <% }) %>
+      </ul>
+      <a href="/transactions" class="button">View All Transactions</a>
+    </div>
+
+    <div class="dashboard-section">
+      <h2>Recent Expense Reports</h2>
+      <ul>
+        <% expenseReports.forEach(report => { %>
+          <li><%= report.title %> (<%= report.startDate.toDateString() %>)</li>
+        <% }) %>
+      </ul>
+      <a href="/expenseReports" class="button">View All Expense Reports</a>
+    </div>
+  </div>
 </body>
 </html>

@@ -5,15 +5,16 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
 const dotenv = require('dotenv');
+const path = require('path'); // Import path module for static file serving
 
 dotenv.config();
 
+// Import controllers and middleware
 const authController = require('./controllers/userController.js');
 const budgetsController = require('./controllers/budgetController.js');
 const transactionsController = require('./controllers/transactionController.js');
 const expenseReportController = require('./controllers/expenseReportController.js');
 const dashboardController = require('./controllers/dashboardController.js');
-
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 
@@ -40,16 +41,21 @@ app.use(passUserToView);
 
 app.set('view engine', 'ejs');
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index'); // Assuming you have an index.ejs file in your views directory
 });
 
+// Middleware to check if user is signed in before accessing certain routes
 app.use('/auth', authController);
-app.use(isSignedIn);
+app.use(isSignedIn); // Ensures user is signed in for the following routes
 app.use('/dashboard', dashboardController);
 app.use('/budgets', budgetsController);
 app.use('/transactions', transactionsController);
-app.use('/expenseReports', expenseReportController); 
+app.use('/expenseReports', expenseReportController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

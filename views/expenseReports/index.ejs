@@ -3,29 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Expense Reports - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/nav') %>
-  
-  <h1>Expense Reports</h1>
 
-  <% if (reports.length > 0) { %>
-    <ul>
-      <% reports.forEach(report => { %>
-        <li>
-          <a href="/expenseReports/<%= report._id %>"><%= report.title %></a>
-          <form action="/expenseReports/<%= report._id %>?_method=DELETE" method="POST" style="display: inline;">
-            <button type="submit">Delete</button>
-          </form>
-        </li>
-      <% }); %>
-    </ul>
-  <% } else { %>
-    <p>No expense reports found.</p>
-  <% } %>
+  <div class="container">
+    <h1>Expense Reports</h1>
 
-  <a href="/expenseReports/new">Create New Expense Report</a>
+    <% if (reports.length > 0) { %>
+      <ul>
+        <% reports.forEach(report => { %>
+          <li>
+            <%= report.title %> (<%= report.startDate.toDateString() %>)
+            <a href="/expenseReports/<%= report._id %>/edit" class="button">Edit</a>
+            <form action="/expenseReports/<%= report._id %>?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit" class="button">Delete</button>
+            </form>
+          </li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p>No expense reports found.</p>
+    <% } %>
+
+    <a href="/expenseReports/new" class="button">Create New Expense Report</a>
+  </div>
 </body>
 </html>

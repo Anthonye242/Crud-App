@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Create Expense Report - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/nav') %>
-  
-  <h1>Create Expense Report</h1>
 
-  <form action="/expenseReports" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-  
-    <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate" name="startDate" required>
-  
-    <button type="submit">Create Expense Report</button>
-  </form>
+  <div class="container">
+    <h1>Create Expense Report</h1>
+
+    <form action="/expenseReports" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" required>
+
+      <button type="submit" class="button">Create Expense Report</button>
+    </form>
+  </div>
 </body>
 </html>
-

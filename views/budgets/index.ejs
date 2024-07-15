@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Budgets - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/nav') %>
-  
-  <h1>Budgets</h1>
 
-  <a href="/budgets/new">Create New Budget</a>
+  <div class="budget-container">
+    <h1>Budgets</h1>
 
-  <ul>
-    <% budgets.forEach(budget => { %>
-      <li>
-        <%= budget.title %> - $<%= budget.amount %>
-        <a href="/budgets/<%= budget._id %>/edit">Edit</a>
-        <form action="/budgets/<%= budget._id %>?_method=DELETE" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    <% }) %>
-  </ul>
+    <a href="/budgets/new" class="button">Create New Budget</a>
+
+    <ul>
+      <% budgets.forEach(budget => { %>
+        <li>
+          <%= budget.title %> - $<%= budget.amount %>
+          <a href="/budgets/<%= budget._id %>/edit" class="button">Edit</a>
+          <form action="/budgets/<%= budget._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit" class="button">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
 </body>
 </html>

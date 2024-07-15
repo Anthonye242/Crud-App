@@ -3,23 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <%- include('partials/nav') %>
-  
-  <h1>Welcome to Personal Finance Tracker</h1>
-  
-  <% if (user) { %>
-    <p>Welcome, <%= user.username %>!</p>
-    <a href="/budgets">Manage Budgets</a>
-    <a href="/transactions">Manage Transactions</a>
-    <a href="/expenseReports">Manage Expense Reports</a>
-    <a href="/auth/sign-out">Sign Out</a>
-  <% } else { %>
-    <a href="/auth/sign-in">Sign In</a>
-    <a href="/auth/sign-up">Sign Up</a>
-  <% } %>
+  <% include('partials/nav') %>
+
+  <img src="https://i.imgur.com/yOWswGa.jpg" alt="Finance Image" class="welcome-image">
+
+  <div class="container">
+    <div class="middle-content">
+      <h1>Welcome to Personal Finance Tracker</h1>
+
+      <% if (user) { %>
+        <p>Welcome, <%= user.username %>!</p>
+        <div class="top-links">
+          <a href="/budgets">Manage Budgets</a>
+          <a href="/transactions">Manage Transactions</a>
+          <a href="/expenseReports">Manage Expense Reports</a>
+          <a href="/auth/sign-out">Sign Out</a>
+        </div>
+      <% } else { %>
+        <div class="bottom-buttons">
+          <a href="/auth/sign-in" class="button">Sign In</a>
+          <a href="/auth/sign-up" class="button">Sign Up</a>
+        </div>
+      <% } %>
+    </div>
+  </div>
 </body>
 </html>
