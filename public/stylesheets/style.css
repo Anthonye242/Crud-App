@@ -50,7 +50,7 @@ nav a:hover {
   position: relative; /* Ensure relative positioning for absolute children */
    
 }
-.budget-container {
+.budget-container, .expense-container, .transactions-container{
   max-width: 600px; /* Maximum width */
   margin: 100px auto 50px; /* Center horizontally with margin top and bottom */
   padding: 20px; /* Padding inside containers */
