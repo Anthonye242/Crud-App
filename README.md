@@ -35,3 +35,4 @@ Planned future enhancements for the app include:
 - Implementing user authentication for secure access.
 - Adding data visualization for budget trends.
 - Enhancing mobile responsiveness.
+- Implementing like Business version like Quickbooks or Salesforce.
