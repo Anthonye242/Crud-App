@@ -8,7 +8,7 @@ The Personal Finance Tracker is a web application designed to help users manage 
 
 ## Getting Started
 
-You can access the Personal Finance Tracker at [App Link](https://example.com).
+You can access the Personal Finance Tracker at [App Link](https://ifinance-8814863b8a85.herokuapp.com/).
 
 For detailed planning materials, refer to the Trello board [here](https://trello.com/b/5zpODWPg/project-2).
 
