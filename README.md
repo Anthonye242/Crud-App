@@ -17,7 +17,7 @@ For detailed planning materials, refer to the Trello board [here](https://trello
 - [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [ChatGPT](https://chatgpt.com/)
 - [Imgur](https://imgur.com/)
-- [Stack Overflow](https://stackoverflow.com/)
+- [Stack Overflow](https://stackoverflow.com/questions/72127296/why-hashedpassword-await-bcrypt-hashthis-password-salt-is-not-working)
 
 ## Technologies Used
 
