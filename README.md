@@ -15,9 +15,11 @@ For detailed planning materials, refer to the Trello board [here](https://trello
 ## Attributions
 
 - [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [ChatGPT](https://chatgpt.com/)
+- [ChatGPT](https://chatgpt.com/) - Code error detection and color palettes for css
 - [Imgur](https://imgur.com/)
 - [Stack Overflow](https://stackoverflow.com/questions/72127296/why-hashedpassword-await-bcrypt-hashthis-password-salt-is-not-working)
+- Peer Coded with a friend of my sister who visited the house 
+- Claude AI for code generation and error detection
 
 ## Technologies Used
 
